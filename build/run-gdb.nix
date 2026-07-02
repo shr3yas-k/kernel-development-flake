@@ -1,6 +1,6 @@
 {
   lib,
-  writeScriptBin,
+  writeShellScriptBin,
   runCommand,
   gdb,
 }:
@@ -20,7 +20,7 @@ let
   version = builtins.head (builtins.split "-" kernel.modDirVersion);
 in
 # Need a to go a directroy above source (eg. scripts) because vmlinux is using relative path
-writeScriptBin "rungdb" ''
+writeShellScriptBin "rungdb" ''
   ${gdb}/bin/gdb \
     ${searchDirs} \
     -ex "dir ${kernel.dev}/lib/modules/${kernel.modDirVersion}/source/scripts" \
