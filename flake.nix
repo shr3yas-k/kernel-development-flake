@@ -199,6 +199,10 @@
               # kdf-cli
               virtiofsd
               kdf-cli-virtualenv
+
+              #scripts
+              runGdb
+              runQemu
             ]
             ++ lib.optionals enableRust [
               rustToolchain
